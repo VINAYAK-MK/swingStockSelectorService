@@ -1,0 +1,916 @@
+Analyzing ticker: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Strategy: PULLBACK
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 978.3582153320312
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 955.1963590594339
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 9.484537971062537
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -23.161856272597333
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 32.64639424365987
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 976.3115234375
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 948.5763850420728
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 12.080316914526406
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -27.735138395427157
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 39.81545530995356
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 955.495361328125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 997.5554818575661
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 46.87372979594568
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 42.060120529441065
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 4.8136092665046135
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1001.12109375
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 971.2874800266743
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 2.287126369537873E-5
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -29.833613723325698
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 29.833636594589393
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1193.5799560546875
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1224.0538330078125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 52.35520040525944
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 30.473876953125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 21.88132345213444
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1269.4000244140625
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1325.2000819614955
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 57.5999755859375
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 55.80005754743297
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 1.7999180385045292
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1315.800048828125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1402.0928955078125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 102.5
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 86.2928466796875
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 16.2071533203125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Strategy: MEAN_REVISION
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Strategy: MOMENTUM_STRATEGY
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 918.6163940429688
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 970.4932371425853
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 49.568701905846524
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 51.87684309961651
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 959.5579223632812
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 975.1134643554688
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 28.284830939812537
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 15.5555419921875
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 12.729288947625037
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 977.6593017578125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1033.7679794035403
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 52.41476921422077
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 56.10867764572777
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1012.8021850585938
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 978.7575073242188
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 30.200797318911555
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -34.044677734375
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 64.24547505328655
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1027.5281982421875
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 989.3902713257918
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 15.774344480078526
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -38.13792691639571
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 53.91227139647424
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1058.4278564453125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1125.4331229835857
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 68.73812914288555
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 67.00526653827319
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 1.7328626046123645
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1130.6103515625
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1086.5320283321687
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 18.519888819172593
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -44.07832323033131
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 62.5982120495039
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1097.4644775390625
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1049.585212789786
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 32.64666908431059
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -47.879264749276444
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 80.52593383358703
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1074.3021240234375
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1036.12135804079
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 20.316844545344566
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -38.18076598264747
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 58.49761052799204
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1130.1612548828125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1237.7005403218138
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 63.89602540296573
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 107.53928543900133
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1286.856201171875
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1232.2236411797312
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 0.94848338926613
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -54.6325599921438
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 55.58104338140993
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1180.2413330078125
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1253.2075427291059
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 12.739089946087688
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 72.96620972129335
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1243.9368896484375
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1202.9362400994366
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 36.61879559672093
+2026-03-11T22:29:58.549+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -41.000649549000855
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 77.61944514572178
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1019.8284301757812
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 980.0124433394
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 6.644319641327229
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -39.815986836381285
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 46.460306477708514
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1010.4863891601562
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1069.2362060546875
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 64.14523014068459
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 58.74981689453125
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 5.395413246153339
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1096.9124755859375
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1057.92435593343
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 25.628219754819384
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -38.98811965250752
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 64.6163394073269
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1076.9295654296875
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1185.2512654376126
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 85.57697899147979
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 108.32170000792507
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1221.9556884765625
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1156.6186859126635
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 11.98970753263734
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -65.33700256389898
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 77.32671009653632
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1191.781494140625
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1194.5791015625
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 17.684867309005767
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 2.797607421875
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 14.887259887130767
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1126.0
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1192.3428431919642
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 62.0
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 66.34284319196422
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1186.800048828125
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1228.5
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 89.2999267578125
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 41.699951171875
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 47.5999755859375
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1265.4000244140625
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1231.2000034877233
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 38.5999755859375
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -34.20002092633922
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 72.79999651227672
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1293.800048828125
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1261.271484375
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 9.39990234375
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -32.528564453125
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 41.928466796875
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.550+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1298.800048828125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1256.4000767299108
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 28.199951171875
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -42.39997209821422
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 70.59992327008922
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1363.699951171875
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1395.5
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 15.0
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 31.800048828125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Strategy: BREAK_OUT
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 948.337646484375
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 968.1353149414062
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 39.04657036202468
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 19.79766845703125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 19.24890190499343
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 978.3582153320312
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 947.4757403019015
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 9.484537971062537
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -30.88247503012974
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 40.36701300119228
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 958.59033203125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 926.3695768750913
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 29.801508320776406
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -32.2207551561587
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 62.02226347693511
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 950.7031860351562
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 980.6544189453125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 45.675665430091044
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 29.95123291015625
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 15.724432519934794
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1012.8021850585938
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 992.4352416992188
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 32.996301854228705
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -20.366943359375
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 53.363245213603705
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1001.12109375
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1019.4912719726562
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 2.287126369537873E-5
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 18.37017822265625
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1058.4278564453125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1142.184439618154
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 68.73812914288555
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 83.7565831728416
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1121.5751953125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1083.480026642966
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 22.563186074323085
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -38.095168669533905
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 60.65835474385699
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1114.736328125
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1067.7912981016104
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 25.009327405057775
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -46.94503002338956
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 71.95435742844734
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1095.0682373046875
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1056.5308837890625
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 0.6989331895094892
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -38.537353515625
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 39.23628670513449
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1051.1396484375
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1003.859419746824
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 43.479320131282066
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -47.28022869067604
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 90.7595488219581
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.551+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1125.1693115234375
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1185.0718994140625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 68.88796876234073
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 59.902587890625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 8.985380871715734
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1221.9119873046875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1167.0298516462094
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 0.09983158343402465
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -54.88213565847809
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 54.981967241912116
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1224.6573486328125
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1308.281982421875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 66.19232569047517
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 83.6246337890625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1180.2413330078125
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1238.4915771484375
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 12.739089946087688
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 58.250244140625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1169.15087890625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1165.50390625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 20.832126803455594
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -3.64697265625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 24.479099459705594
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1154.9129638671875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1101.3373000541706
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 37.91759600144633
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -53.575663813016945
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 91.49325981446327
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1074.0321044921875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1033.2241259513542
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 5.195592140025838
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -40.807978540833346
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 46.003570680859184
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 982.9598999023438
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1009.1875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 43.51284991476473
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 26.22760009765625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 17.28524981710848
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1015.8318481445312
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1111.0897281247496
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 58.79977115630959
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 95.25787998021838
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1076.9295654296875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1212.3316904395938
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 85.57697899147979
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 135.40212500990629
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1171.198974609375
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1158.0103759765625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 51.955694262338284
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -13.1885986328125
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 65.14429289515078
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1193.5799560546875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1177.5999755859375
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 52.35520040525944
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -15.97998046875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 68.33518087400944
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TARGET TOO HIGH → price moved but target unreachable
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1082.5999755859375
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1050.17138671875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 12.4000244140625
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -32.4285888671875
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 44.82861328125
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1105.300048828125
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1186.550048828125
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 67.5
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 81.25
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.552+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1212.800048828125
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1168.2143031529017
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 0.0
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -44.58574567522328
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 44.58574567522328
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : TRUE BAD TRADE → price kept falling
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1196.300048828125
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1249.5999755859375
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 79.7999267578125
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 53.2999267578125
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 26.5
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1265.4000244140625
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1231.2000034877233
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 38.5999755859375
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: -34.20002092633922
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 72.79999651227672
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1246.0
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1335.1429356166295
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 63.0
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 89.14293561662953
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : GOOD TRADE → behaved correctly
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Trade: AXISBANK.NS
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Entry Price: 1370.4000244140625
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Exit Price: 1383.9000244140625
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Possible Profit: 0.0
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Actual Profit: 13.5
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Missed Profit: 0.0
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : STOPLOSS TOO TIGHT → trade recovered later
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : -----------------------------------
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : =======================================
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : ANALYZER SUMMARY
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : =======================================
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Total Actual Profit: 563.5462069475367
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Total Possible Profit: 2248.588687726683
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Total Missed Profit: 2074.8107853856372
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Good Trades: 17
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : True Bad Trades: 19
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : StopLoss Too Tight: 14
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Target Too High: 12
+2026-03-11T22:29:58.553+05:30  INFO 26384 --- [swingStockSelector] [io-8080-exec-10] c.swingStockSelector.service.Analyzer    : Profit Capture Efficiency: 25.06221836049884 %2026-03-15 12:38:54.930495+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO stock_behavior\000d\000a(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,\000d\000a max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,\000d\000a breakout_lookback, min_atr, sample_trades)\000d\000a([*]'RELIANCE.NS', 'NIFTY_ENERGY', 'BREAKOUT',\000d\000a 1.4, 3.0, 1.1,\000d\000a 6, 50, 80, 22, 2.0,\000d\000a 30, 0.8, 0),"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO stock_behavior
+(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,
+ max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,
+ breakout_lookback, min_atr, sample_trades)
+('RELIANCE.NS', 'NIFTY_ENERGY', 'BREAKOUT',
+ 1.4, 3.0, 1.1,
+ 6, 50, 80, 22, 2.0,
+ 30, 0.8, 0), [42001-240]
+2026-03-15 12:39:01.514804+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO stock_behavior\000d\000a(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,\000d\000a max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,\000d\000a breakout_lookback, min_atr, sample_trades)\000d\000a([*]'RELIANCE.NS', 'NIFTY_ENERGY', 'BREAKOUT',\000d\000a 1.4, 3.0, 1.1,\000d\000a 6, 50, 80, 22, 2.0,\000d\000a 30, 0.8, 0)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO stock_behavior
+(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,
+ max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,
+ breakout_lookback, min_atr, sample_trades)
+('RELIANCE.NS', 'NIFTY_ENERGY', 'BREAKOUT',
+ 1.4, 3.0, 1.1,
+ 6, 50, 80, 22, 2.0,
+ 30, 0.8, 0) [42001-240]
+2026-03-15 12:40:37.565624+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "RELIANCE.NS" not found; SQL statement:
+select * from stock_behavior where ticker="RELIANCE.NS" and strtegy_name= "BREAKOUT" [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:149)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:149)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1215)
+	at org.h2.command.query.Query.prepare(Query.java:235)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-15 12:40:47.057055+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "RELIANCE.NS" not found; SQL statement:
+select * from stock_behavior where ticker="RELIANCE.NS" and strategy_name= "BREAKOUT" [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:149)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:149)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1215)
+	at org.h2.command.query.Query.prepare(Query.java:235)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-15 12:40:59.537661+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "RELIANCE.NS" not found; SQL statement:
+select * from stock_behavior where ticker="RELIANCE.NS" and strategyName= "BREAKOUT" [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:149)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:149)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1215)
+	at org.h2.command.query.Query.prepare(Query.java:235)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-15 14:03:24.014338+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "delete from [*]table stock_behavior where ticker = ""RELIANCE.NS;"""; expected "identifier"; SQL statement:
+delete from table stock_behavior where ticker = "RELIANCE.NS;" [42001-240]
+2026-03-15 14:03:35.823774+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "delete from [*]table stock_behavior where ticker = ""RELIANCE.NS"""; expected "identifier"; SQL statement:
+delete from table stock_behavior where ticker = "RELIANCE.NS" [42001-240]
+2026-03-15 14:04:12.985188+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "RELIANCE.NS" not found; SQL statement:
+delete from stock_behavior where ticker = "RELIANCE.NS" [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:149)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:149)
+	at org.h2.command.dml.Delete.doPrepare(Delete.java:99)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-15 14:04:32.980867+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "RELAINCE.NS" not found; SQL statement:
+delete from stock_behavior where ticker = "RELAINCE.NS" [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:149)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:149)
+	at org.h2.command.dml.Delete.doPrepare(Delete.java:99)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-15 14:04:34.080692+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "RELAINCE.NS" not found; SQL statement:
+delete from stock_behavior where ticker = "RELAINCE.NS" [42122-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:149)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:149)
+	at org.h2.command.dml.Delete.doPrepare(Delete.java:99)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:653)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-15 14:05:04.025907+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "delete from [*]table stock_behavior where ticker = ""RELIANCE.NS"""; expected "identifier"; SQL statement:
+delete from table stock_behavior where ticker = "RELIANCE.NS" [42001-240]
+2026-03-15 19:57:59.721376+05:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO stock_behavior\000d\000a(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,\000d\000a max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,\000d\000a breakout_lookback, min_atr, sample_trades)\000d\000aVALUES\000d\000aINSERT [*]INTO stock_behavior\000d\000a(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,\000d\000a max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,\000d\000a breakout_lookback, min_atr, sample_trades)\000d\000aVALUES\000d\000a('RELIANCE.NS', 'NIFTY_ENERGY', 'PULLBACK',\000d\000a 1.2, 2.5, 1.0,\000d\000a 5, 40, 65, 18, 1.3,\000d\000a 20, 0.5, 0),\000d\000a\000d\000a('RELIANCE.NS', 'NIFTY_ENERGY', 'MOMENTUM',\000d\000a 1.5, 3.5, 1.2,\000d\000a 7, 55, 75, 25, 1.8,\000d\000a 20, 0.7, 0),\000d\000a\000d\000a('RELIANCE.NS', 'NIFTY_ENERGY', 'BREAKOUT',\000d\000a 1.4, 3.0, 1.1,\000d\000a 6, 50, 80, 22, 2.0,\000d\000a 30, 0.8, 0),\000d\000a\000d\000a('RELIANCE.NS', 'NIFTY_ENERGY', 'MEAN_REVERSION',\000d\000a 1.0, 1.8, 0.8,\000d\000a 4, 25, 45, 15, 1.0,\000d\000a 15, 0.4, 0)"; SQL statement:
+INSERT INTO stock_behavior
+(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,
+ max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,
+ breakout_lookback, min_atr, sample_trades)
+VALUES
+INSERT INTO stock_behavior
+(ticker, sector, strategy_name, stop_loss_atr, target_atr, trailing_stop_atr,
+ max_holding_days, min_rsi, max_rsi, min_adx, volume_multiplier,
+ breakout_lookback, min_atr, sample_trades)
+VALUES
+('RELIANCE.NS', 'NIFTY_ENERGY', 'PULLBACK',
+ 1.2, 2.5, 1.0,
+ 5, 40, 65, 18, 1.3,
+ 20, 0.5, 0),
+
+('RELIANCE.NS', 'NIFTY_ENERGY', 'MOMENTUM',
+ 1.5, 3.5, 1.2,
+ 7, 55, 75, 25, 1.8,
+ 20, 0.7, 0),
+
+('RELIANCE.NS', 'NIFTY_ENERGY', 'BREAKOUT',
+ 1.4, 3.0, 1.1,
+ 6, 50, 80, 22, 2.0,
+ 30, 0.8, 0),
+
+('RELIANCE.NS', 'NIFTY_ENERGY', 'MEAN_REVERSION',
+ 1.0, 1.8, 0.8,
+ 4, 25, 45, 15, 1.0,
+ 15, 0.4, 0) [42000-240]

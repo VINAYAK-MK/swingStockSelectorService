@@ -1,0 +1,844 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Stock Selection Service API",
+    "description": "Service to select top long swing trading candidates based on technical indicators.",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "StockSelection",
+      "description": "Stock selection operations"
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/stocks/process": {
+      "post": {
+        "tags": [
+          "StockSelection"
+        ],
+        "summary": "Process tickers and compute indicators",
+        "operationId": "processTickers",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProcessTickerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Processing result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessTickerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/selection/top-long": {
+      "get": {
+        "tags": [
+          "StockSelection"
+        ],
+        "summary": "Get Top Long Swing Candidates",
+        "description": "Returns top N long candidates ranked by score for the latest available trade date.",
+        "operationId": "getTopLongSelections",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of top stocks to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 5,
+              "minimum": 1,
+              "maximum": 20
+            }
+          },
+          {
+            "name": "tradeDate",
+            "in": "query",
+            "description": "Trade date in YYYY-MM-DD format (optional). Defaults to latest available date.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Top long candidates retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TopLongResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/selection/backtester": {
+      "post": {
+        "tags": [
+          "Backtesting"
+        ],
+        "summary": "Run Swing Pullback Backtest",
+        "description": "Runs the swing pullback backtesting engine for the given ticker list and returns trade results and performance metrics.",
+        "operationId": "runSwingPullbackBacktest",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BackTestRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Backtest completed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BacktestResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TopLongResponse": {
+        "type": "object",
+        "properties": {
+          "tradeDate": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
+          "stocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelectedStock"
+            }
+          }
+        }
+      },
+      "SelectedStock": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "example": "RELIANCE"
+          },
+          "score": {
+            "type": "number",
+            "format": "double",
+            "example": 0.84231
+          },
+          "close": {
+            "type": "number",
+            "format": "double",
+            "example": 2450.75
+          }
+        }
+      },
+      "ProcessTickerRequest": {
+        "type": "object",
+        "required": [
+          "tickers",
+          "tradeDate"
+        ],
+        "properties": {
+          "tickers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "RELIANCE",
+              "TCS",
+              "INFY"
+            ]
+          },
+          "tradeDate": {
+            "type": "string",
+            "example": "2026-02-23"
+          }
+        }
+      },
+      "ProcessTickerResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Processed 3 new tickers"
+          },
+          "processedCount": {
+            "type": "integer",
+            "example": 3
+          }
+        }
+      },
+      "TickerIndicatorResponse": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DailyIndicator"
+            }
+          }
+        }
+      },
+      "DailyIndicator": {
+        "type": "object",
+        "properties": {
+          "tradeDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "open": {
+            "type": "number",
+            "format": "double"
+          },
+          "high": {
+            "type": "number",
+            "format": "double"
+          },
+          "low": {
+            "type": "number",
+            "format": "double"
+          },
+          "close": {
+            "type": "number",
+            "format": "double"
+          },
+          "volume": {
+            "type": "number",
+            "format": "double"
+          },
+          "ema20": {
+            "type": "number",
+            "format": "double"
+          },
+          "ema50": {
+            "type": "number",
+            "format": "double"
+          },
+          "ema200": {
+            "type": "number",
+            "format": "double"
+          },
+          "rsi14": {
+            "type": "number",
+            "format": "double"
+          },
+          "rsi20": {
+            "type": "number",
+            "format": "double"
+          },
+          "macd": {
+            "type": "number",
+            "format": "double"
+          },
+          "macdSignal": {
+            "type": "number",
+            "format": "double"
+          },
+          "macdHist": {
+            "type": "number",
+            "format": "double"
+          },
+          "atr14": {
+            "type": "number",
+            "format": "double"
+          },
+          "volumeAvg20": {
+            "type": "number",
+            "format": "double"
+          },
+          "highestHigh20": {
+            "type": "number",
+            "format": "double"
+          },
+          "lowestLow20": {
+            "type": "number",
+            "format": "double"
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          },
+          "buySignal": {
+            "type": "boolean"
+          },
+          "sellSignal": {
+            "type": "boolean"
+          },
+          "adx14": {
+            "type": "number",
+            "format": "double"
+          },
+          "bbUpper": {
+            "type": "number",
+            "format": "double"
+          },
+          "bbMiddle": {
+            "type": "number",
+            "format": "double"
+          },
+          "bbLower": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "BackTestRequest": {
+        "type": "object",
+        "properties": {
+          "tickers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "strategies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "userExpectation":{
+            "$ref": "#/components/schemas/UserExpectation"
+
+          }
+        }
+      },
+      "UserExpectation": {
+        "type": "object",
+        "properties": {
+          "expectedProfitPercent": {
+            "type": "number",
+            "format": "double",
+            "description": "Expected profit per trade in percentage"
+          },
+          "capital": {
+            "type": "number",
+            "format": "double",
+            "description": "Total capital available for trading"
+          },
+          "riskPerTradePercent": {
+            "type": "number",
+            "format": "double",
+            "description": "Maximum capital risked per trade in percentage"
+          },
+          "maxHoldingDays": {
+            "type": "integer",
+            "description": "Maximum number of days user is willing to hold a trade"
+          }
+        }
+      },
+      "Exit": {
+        "type": "object",
+        "properties": {
+          "exitDay": {
+            "type": "String"
+          },
+          "entryDay": {
+            "type": "String"
+          },
+          "exitPrice": {
+            "type": "number",
+            "format": "double",
+            "description": "Price at which the trade exited"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Reason for exiting the trade",
+            "enum": [
+              "STOP_LOSS",
+              "TARGET",
+              "TIME_EXIT",
+              "DATA_END"
+            ]
+          },
+          "exitIndex": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Index of the candle where exit occurred"
+          },
+          "stopLoss": {
+            "type": "number",
+            "format": "double",
+            "description": "Profit or loss from the trade"
+          },
+          "target": {
+            "type": "number",
+            "format": "double",
+            "description": "Profit or loss from the trade"
+          }
+        },
+        "required": [
+          "exitPrice",
+          "reason",
+          "exitIndex",
+          "exitDay",
+          "entryDay",
+          "stopLoss",
+          "target"
+        ]
+      },
+      "Trade": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "description": "Stock ticker symbol"
+          },
+          "entryPrice": {
+            "type": "number",
+            "format": "double",
+            "description": "Price at which the trade was entered"
+          },
+          "exitPrice": {
+            "type": "number",
+            "format": "double",
+            "description": "Price at which the trade exited"
+          },
+          "entryDay": {
+            "type": "string"
+          },
+          "exitDay": {
+            "type": "string"
+          },
+          "entryIndex": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Index of candle where entry occurred"
+          },
+          "exitIndex": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Index of candle where exit occurred"
+          },
+          "exitReason": {
+            "type": "string",
+            "description": "Reason for exiting the trade",
+            "enum": [
+              "STOP_LOSS",
+              "TARGET",
+              "TIME_EXIT",
+              "DATA_END"
+            ]
+          },
+          "profit": {
+            "type": "number",
+            "format": "double",
+            "description": "Profit or loss from the trade"
+          },
+          "win": {
+            "type": "boolean",
+            "description": "Indicates if the trade was profitable"
+          },
+          "stopLoss": {
+            "type": "number",
+            "format": "double"
+          },
+          "target": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "ticker",
+          "entryPrice",
+          "exitPrice",
+          "entryIndex",
+          "exitIndex",
+          "exitReason",
+          "profit",
+          "win",
+          "entryDay",
+          "exitDay",
+          "stopLoss",
+          "target"
+        ]
+      },
+      "StrategyResult": {
+        "type": "object",
+        "properties": {
+          "strategyName": {
+            "type": "string"
+          },
+          "totalTrades": {
+            "type": "integer"
+          },
+          "wins": {
+            "type": "integer"
+          },
+          "losses": {
+            "type": "integer"
+          },
+          "winRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalProfit": {
+            "type": "number",
+            "format": "double"
+          },
+          "trades": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trade"
+            }
+          }
+        }
+      },
+      "BacktestResponse": {
+        "type": "object",
+        "properties": {
+          "tickers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TickerBacktestResult"
+            }
+          }
+        }
+      },
+      "TickerBacktestResult": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string"
+          },
+          "strategyResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StrategyResult"
+            }
+          }
+        }
+      },
+      "TradePotential": {
+        "type": "object",
+        "required": [
+          "trade",
+          "possibleProfit"
+        ],
+        "properties": {
+          "trade": {
+            "$ref": "#/components/schemas/Trade"
+          },
+          "possibleProfit": {
+            "type": "number",
+            "format": "double",
+            "description": "Maximum possible profit during the trade window before exit"
+          }
+        }
+      },
+      "StopLossStudy": {
+        "type": "object",
+        "required": [
+          "trade",
+          "profitBeforeStop"
+        ],
+        "properties": {
+          "trade": {
+            "$ref": "#/components/schemas/Trade"
+          },
+          "profitBeforeStop": {
+            "type": "number",
+            "format": "double",
+            "description": "Maximum profit achieved before the stop loss was hit"
+          }
+        }
+      },
+      "StrategyParams": {
+        "type": "object",
+        "required": [
+          "stopLossAtrMultiplier",
+          "targetAtrMultiplier",
+          "maxHoldingDays",
+          "minRsi",
+          "maxRsi",
+          "minAdx",
+          "volumeMultiplier",
+          "strategy"
+        ],
+        "properties": {
+          "strategy": {
+            "type": "string"
+          },
+          "stopLossAtrMultiplier": {
+            "type": "number",
+            "format": "double",
+            "description": "ATR multiplier used to calculate stop loss"
+          },
+          "targetAtrMultiplier": {
+            "type": "number",
+            "format": "double",
+            "description": "ATR multiplier used to calculate target price"
+          },
+          "maxHoldingDays": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of days the trade can be held before time exit"
+          },
+          "minRsi": {
+            "type": "number",
+            "format": "double",
+            "description": "Minimum RSI value allowed for entry"
+          },
+          "maxRsi": {
+            "type": "number",
+            "format": "double",
+            "description": "Maximum RSI value allowed for entry"
+          },
+          "minAdx": {
+            "type": "number",
+            "format": "double",
+            "description": "Minimum ADX value required for trend strength"
+          },
+          "volumeMultiplier": {
+            "type": "number",
+            "format": "double",
+            "description": "Multiplier applied to average volume to confirm strong participation"
+          },
+          "breakoutLookback": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of candles used to determine breakout levels"
+          },
+          "minAtr": {
+            "type": "number",
+            "format": "double",
+            "description": "Minimum ATR required to ensure sufficient volatility"
+          },
+          "trailingStopAtrMultiplier": {
+            "type": "number",
+            "format": "double",
+            "description": "ATR multiplier used for trailing stop loss (optional advanced exit)"
+          },
+          "riskRewardRatio": {
+            "type": "number",
+            "format": "double",
+            "description": "Desired risk reward ratio for trade target calculation"
+          }
+        }
+      },
+      "TradeStrategyResult": {
+        "type": "object",
+        "description": "Summary analysis of a trading strategy after backtest lifecycle evaluation",
+        "properties": {
+          "strategyName": {
+            "type": "string",
+            "description": "Name of the strategy"
+          },
+          "totalTrades": {
+            "type": "integer",
+            "description": "Total number of trades taken"
+          },
+          "immediateFailures": {
+            "type": "integer",
+            "description": "Trades that failed immediately after entry"
+          },
+          "stopAfterProfit": {
+            "type": "integer",
+            "description": "Trades that had profit but later hit stop loss"
+          },
+          "strongMoves": {
+            "type": "integer",
+            "description": "Trades that showed strong favorable movement"
+          },
+          "sidewaysTrades": {
+            "type": "integer",
+            "description": "Trades that did not move significantly"
+          },
+          "entryAtTop": {
+            "type": "integer",
+            "description": "Trades where entry occurred at the highest point"
+          },
+          "averageMfePercent": {
+            "type": "number",
+            "format": "double",
+            "description": "Average Maximum Favorable Excursion percentage"
+          },
+          "averageMaePercent": {
+            "type": "number",
+            "format": "double",
+            "description": "Average Maximum Adverse Excursion percentage"
+          },
+          "averageBarsToPeak": {
+            "type": "integer",
+            "description": "Average number of candles taken to reach peak profit"
+          },
+          "marketTrend": {
+            "type": "string"
+          },
+          "sectorTrend": {
+            "type": "string"
+          },
+          "timeExitProfitable": {
+            "type": "integer",
+            "description": "Trade exited by time but price moved near expected profit (target likely too high)"
+          },
+          "timeExitSideways": {
+            "type": "integer",
+            "description": "Trade exited by time with very little price movement (sideways market)"
+          },
+          "timeExitLoss": {
+            "type": "integer",
+            "description": "Trade exited by time but price moved in the wrong direction"
+          },
+          "stoplossPremature": {
+            "type": "integer",
+            "description": "Stop loss hit but price later moved in the expected direction (stop loss too tight)"
+          },
+          "stoplossValid": {
+            "type": "integer",
+            "description": "Stop loss hit and price never recovered (correct stop loss)"
+          }
+        }
+      },
+      "TradeMetrics": {
+        "type": "object",
+        "properties": {
+          "marketTrend": { "type": "string" },
+          "sectorTrend": { "type": "string" },
+          "mfe": { "type": "number", "format": "double" },
+          "mae": { "type": "number", "format": "double" },
+          "barsToPeak": { "type": "integer" },
+          "timeExitProfitable": {
+            "type": "integer",
+            "description": "Trade exited by time but price moved near expected profit (target likely too high)"
+          },
+          "timeExitSideways": {
+            "type": "integer",
+            "description": "Trade exited by time with very little price movement (sideways market)"
+          },
+          "timeExitLoss": {
+            "type": "integer",
+            "description": "Trade exited by time but price moved in the wrong direction"
+          },
+          "stoplossPremature": {
+            "type": "integer",
+            "description": "Stop loss hit but price later moved in the expected direction (stop loss too tight)"
+          },
+          "stoplossValid": {
+            "type": "integer",
+            "description": "Stop loss hit and price never recovered (correct stop loss)"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
