@@ -9,15 +9,22 @@ import com.swingStockSelector.repository.StockBehaviorRepository;
 import com.swingStockSelector.repository.StockDailyRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.knowm.xchart.BitmapEncoder;
+import org.knowm.xchart.SwingWrapper;
+import org.knowm.xchart.XYChart;
+import org.knowm.xchart.XYChartBuilder;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
+
+import static com.swingStockSelector.config.utils.Constants.*;
 
 @Slf4j
 @Service
@@ -157,17 +164,39 @@ public class SwingStockSelectorService {
             TickerBacktestResult tickerBacktestResult = new TickerBacktestResult().ticker(ticker);
 
             // Fetch historical data
-            List<StockPriceDaily> candles = stockDailyRepository.findByTickerOrderByTradeDateAsc(ticker);
+            List<StockPriceDaily> candles =
+                    stockDailyRepository.findByTickerOrderByTradeDateAsc(ticker);
+
+            int totalSize = candles.size();
+
+            int splitIndex = (int) (totalSize * 0.6);
+
+            List<StockPriceDaily> trainingData = candles.subList(0, totalSize-1);
+
+            List<StockPriceDaily> testingData = candles.subList(splitIndex, totalSize);
 
             List<StockBehavior> stockBehaviors = stockBehaviorRepository.findByTicker(ticker);
 
             Map<String, StrategyParams> paramsMap =
                     stockBehaviors.stream()
                             .map(mapper::mapToStrategyParams)
+                            .filter(Objects::nonNull)
                             .collect(Collectors.toMap(
                                     StrategyParams::getStrategy,
-                                    p -> p
+                                    p -> p,
+                                    (existing, replacement) -> existing // avoid duplicate crash
                             ));
+
+            List<String> allStrategies = Arrays.asList(
+                    PULLBACK,
+                    MOMENTUM,
+                    BREAKOUT,
+                    MEAN_REVERSION
+            );
+
+            for (String strategy : allStrategies) {
+                paramsMap.computeIfAbsent(strategy, this::getDefaultParams);
+            }
 
             if (candles == null || candles.isEmpty()) {
                 continue;
@@ -177,39 +206,155 @@ public class SwingStockSelectorService {
             if (strategies.isEmpty() || strategies.contains(Constants.PULLBACK)) {
 
 
-                StrategyResult strategyResult = strategy.swingPullBack(ticker, candles, paramsMap.get(Constants.PULLBACK));
+                StrategyResult strategyResult = strategy.swingPullBack(ticker, trainingData, paramsMap.get(Constants.PULLBACK));
 
                 tickerBacktestResult.addStrategyResultsItem(strategyResult);
 
             }
             // Run selected strategies
-            if (strategies.isEmpty() || strategies.contains(Constants.MEAN_REVERSION)) {
+            if (strategies.isEmpty() || strategies.contains(MEAN_REVERSION)) {
 
-                StrategyResult strategyResult = strategy.meanReversionStrategy(ticker, candles, paramsMap.get(Constants.MEAN_REVERSION));
-
-                tickerBacktestResult.addStrategyResultsItem(strategyResult);
-
-            }
-            // Run selected strategies
-            if (strategies.isEmpty() || strategies.contains(Constants.MOMENTUM)) {
-
-                StrategyResult strategyResult = strategy.momentumStrategy(ticker, candles, paramsMap.get(Constants.MOMENTUM));
+                StrategyResult strategyResult = strategy.meanReversionStrategy(ticker, trainingData, paramsMap.get(MEAN_REVERSION));
 
                 tickerBacktestResult.addStrategyResultsItem(strategyResult);
 
             }
             // Run selected strategies
-            if (strategies.isEmpty() || strategies.contains(Constants.BREAKOUT)) {
+            if (strategies.isEmpty() || strategies.contains(MOMENTUM)) {
 
-                StrategyResult strategyResult = strategy.breakoutStrategy(ticker, candles, paramsMap.get(Constants.BREAKOUT));
+                StrategyResult strategyResult = strategy.momentumStrategy(ticker, trainingData, paramsMap.get(MOMENTUM));
 
                 tickerBacktestResult.addStrategyResultsItem(strategyResult);
+
+            }
+            // Run selected strategies
+            if (strategies.isEmpty() || strategies.contains(BREAKOUT)) {
+
+                StrategyResult strategyResult = strategy.breakoutStrategy(ticker, trainingData, paramsMap.get(BREAKOUT));
+
+                tickerBacktestResult.addStrategyResultsItem(strategyResult);
+                for (Trade trade : strategyResult.getTrades()) {
+
+                    plotTradeAndSave(
+                            ticker,
+                            candles,
+                            trade
+                    );
+
+                }
 
             }
             backTestResponseFinal.addTickersItem(tickerBacktestResult);
 
+            analyzer.analyzer(tickerBacktestResult, candles, backTestRequest.getUserExpectation());
+
         }
 
         return backTestResponseFinal;
+    }
+
+    private StrategyParams getDefaultParams(String strategy) {
+
+        StrategyParams params = new StrategyParams();
+
+        params.setStrategy(strategy);
+
+        // Risk management
+        params.setStopLossAtrMultiplier(1.2);
+        params.setTargetAtrMultiplier(2.5);
+        params.setTrailingStopAtrMultiplier(1.0);
+        params.setRiskRewardRatio(2.0);
+
+        // Holding
+        params.setMaxHoldingDays(10);
+
+        // Indicators
+        params.setMinRsi(50.0);
+        params.setMaxRsi(70.0);
+        params.setMinAdx(25.0);
+
+        // Breakout
+        params.setVolumeMultiplier(2.0);
+        params.setBreakoutLookback(20);
+
+        // Volatility filter
+        params.setMinAtr(1.0);
+
+        return params;
+    }
+
+    private void plotTradeAndSave(String ticker,
+                                  List<StockPriceDaily> candles,
+                                  Trade trade) {
+
+        try {
+            LocalDate startDate = LocalDate.parse(trade.getEntryDay());
+            LocalDate endDate   = LocalDate.parse(trade.getExitDay());
+
+            List<Date> xData = new ArrayList<>();
+
+            List<Double> closeData = new ArrayList<>();
+            List<Double> highData  = new ArrayList<>();
+            List<Double> lowData   = new ArrayList<>();
+
+            for (StockPriceDaily candle : candles) {
+                LocalDate date = candle.getTradeDate();
+
+                if ((date.isEqual(startDate) || date.isAfter(startDate)) &&
+                        (date.isEqual(endDate) || date.isBefore(endDate))) {
+
+                    xData.add(java.sql.Date.valueOf(date));
+
+                    closeData.add(candle.getClose());
+                    highData.add(candle.getHigh());
+                    lowData.add(candle.getLow());
+                }
+            }
+
+            if (xData.isEmpty()) return;
+
+            XYChart chart = new XYChartBuilder()
+                    .width(900)
+                    .height(500)
+                    .title(ticker + " Trade (" + startDate + " → " + endDate + ")")
+                    .xAxisTitle("Date")
+                    .yAxisTitle("Price")
+                    .build();
+
+            // Main price lines
+            chart.addSeries("Close", xData, closeData);
+            chart.addSeries("High", xData, highData);
+            chart.addSeries("Low", xData, lowData);
+
+            // Entry marker
+            chart.addSeries("Entry",
+                    List.of(java.sql.Date.valueOf(startDate)),
+                    List.of(trade.getEntryPrice()));
+
+            // Exit marker
+            chart.addSeries("Exit",
+                    List.of(java.sql.Date.valueOf(endDate)),
+                    List.of(trade.getExitPrice()));
+
+            // Optional: Stop loss & target lines
+            chart.addSeries("StopLoss", xData,
+                    Collections.nCopies(xData.size(), trade.getStopLoss()));
+
+            chart.addSeries("Target", xData,
+                    Collections.nCopies(xData.size(), trade.getTarget()));
+
+            // Save chart
+            String dir = "charts/";
+            new File(dir).mkdirs();
+
+            String fileName = dir + ticker + "_" +
+                    startDate + "_" + endDate +
+                    "_" + trade.getExitReason();
+
+            BitmapEncoder.saveBitmap(chart, fileName, BitmapEncoder.BitmapFormat.PNG);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
