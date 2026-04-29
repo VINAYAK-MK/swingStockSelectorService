@@ -60,7 +60,6 @@ public class Analyzer {
         if (day == null) return Trend.SIDEWAYS;
 
         if (day.getEma20() > day.getEma50()) return Trend.BULLISH;
-
         if (day.getEma20() < day.getEma50()) return Trend.BEARISH;
 
         return Trend.SIDEWAYS;
@@ -77,10 +76,8 @@ public class Analyzer {
 
         String ticker = tickerBacktestResult.getTicker();
 
-        log.info("Analyzing ticker {}", ticker);
-
         List<StockPriceDaily> niftyCandles =
-                stockDailyRepository.findByTickerOrderByTradeDateAsc("NIFTY");
+                stockDailyRepository.findByTickerOrderByTradeDateAsc("^NSEI");
 
         List<StockBehavior> behavior =
                 stockBehaviorRepository.findByTicker(ticker);
@@ -93,7 +90,6 @@ public class Analyzer {
             sector = behavior.get(0).getSector();
 
             if (sector != null) {
-
                 sectorCandles =
                         stockDailyRepository.findByTickerOrderByTradeDateAsc(sector);
             }
@@ -101,101 +97,69 @@ public class Analyzer {
 
         for (StrategyResult strategyResult : tickerBacktestResult.getStrategyResults()) {
 
-            if (strategyResult == null) continue;
+            if (strategyResult == null || strategyResult.getTrades() == null) continue;
 
             String strategy = strategyResult.getStrategyName();
 
-            if (PULLBACK.equals(strategy) ||
-                    MOMENTUM.equals(strategy) ||
-                    MEAN_REVERSION.equals(strategy)) {
+            Map<String, List<TradeMetrics>> grouped = new HashMap<>();
 
-                analyzeStrategy(
-                        strategyResult,
-                        candles,
-                        niftyCandles,
-                        sectorCandles,
-                        ticker,
-                        sector,
-                        strategy,
-                        userExpectation
-                );
+            for (Trade trade : strategyResult.getTrades()) {
+
+                if (trade == null ||
+                        StringUtils.equalsAnyIgnoreCase(
+                                Exit.ReasonEnum.TARGET.toString(),
+                                trade.getExitReason().getValue()))
+                    continue;
+
+                TradeStrategyResult tradeResult =
+                        analyzeTradeLifecycle(
+                                trade,
+                                candles,
+                                niftyCandles,
+                                sectorCandles,
+                                userExpectation);
+
+                if (tradeResult == null) continue;
+
+                TradeMetrics metrics = new TradeMetrics();
+
+                metrics.setMfe(tradeResult.getAverageMfePercent());
+                metrics.setMae(tradeResult.getAverageMaePercent());
+                metrics.setBarsToPeak(tradeResult.getAverageBarsToPeak());
+
+                metrics.setMarketTrend(tradeResult.getMarketTrend());
+                metrics.setSectorTrend(tradeResult.getSectorTrend());
+
+                metrics.setTimeExitProfitable(tradeResult.getTimeExitProfitable());
+                metrics.setTimeExitSideways(tradeResult.getTimeExitSideways());
+                metrics.setTimeExitLoss(tradeResult.getTimeExitLoss());
+
+                metrics.setStoplossPremature(tradeResult.getStoplossPremature());
+                metrics.setStoplossValid(tradeResult.getStoplossValid());
+
+                // 🔥 NEW: Entry quality
+                metrics.setGoodEntry(tradeResult.getGoodEntry());
+                metrics.setBadEntry(tradeResult.getBadEntry());
+                metrics.setEntryMovePercent(tradeResult.getEntryMovePercent());
+
+                String marketTrend = Optional.ofNullable(metrics.getMarketTrend()).orElse(Trend.SIDEWAYS.name());
+                String sectorTrend = Optional.ofNullable(metrics.getSectorTrend()).orElse(Trend.SIDEWAYS.name());
+
+                String key = strategy + "_" + marketTrend + "_" + sectorTrend;
+
+                grouped.computeIfAbsent(key, k -> new ArrayList<>()).add(metrics);
             }
-        }
-    }
 
-    private void analyzeStrategy(StrategyResult strategyResult,
-                                 List<StockPriceDaily> candles,
-                                 List<StockPriceDaily> niftyCandles,
-                                 List<StockPriceDaily> sectorCandles,
-                                 String ticker,
-                                 String sector,
-                                 String strategyName,
-                                 UserExpectation userExpectation) {
+            // 🔥 Instead of optimization → insights
+            for (Map.Entry<String, List<TradeMetrics>> entry : grouped.entrySet()) {
+                String[] parts = entry.getKey().split("_");
 
-        Map<String, List<TradeMetrics>> grouped = new HashMap<>();
+                String strat = parts[0];
+                String marketTrend = parts.length > 1 ? parts[1] : "SIDEWAYS";
+                String sectorTrend = parts.length > 2 ? parts[2] : "SIDEWAYS";
 
-        if (strategyResult.getTrades() == null) return;
-
-        for (Trade trade : strategyResult.getTrades()) {
-
-            if (trade == null ||
-                    StringUtils.equalsAnyIgnoreCase(
-                            Exit.ReasonEnum.TARGET.toString(),
-                            trade.getExitReason().getValue()))
-                continue;
-
-            TradeStrategyResult tradeResult =
-                    analyzeTradeLifecycle(
-                            trade,
-                            candles,
-                            niftyCandles,
-                            sectorCandles,
-                            userExpectation);
-
-            if (tradeResult == null) continue;
-
-            TradeMetrics metrics = new TradeMetrics();
-
-            metrics.setMfe(tradeResult.getAverageMfePercent());
-            metrics.setMae(tradeResult.getAverageMaePercent());
-            metrics.setBarsToPeak(tradeResult.getAverageBarsToPeak());
-
-            metrics.setMarketTrend(tradeResult.getMarketTrend());
-            metrics.setSectorTrend(tradeResult.getSectorTrend());
-
-            metrics.setTimeExitProfitable(tradeResult.getTimeExitProfitable());
-            metrics.setTimeExitSideways(tradeResult.getTimeExitSideways());
-            metrics.setTimeExitLoss(tradeResult.getTimeExitLoss());
-
-            metrics.setStoplossPremature(tradeResult.getStoplossPremature());
-            metrics.setStoplossValid(tradeResult.getStoplossValid());
-
-            String marketTrend = metrics.getMarketTrend();
-            String sectorTrend = metrics.getSectorTrend();
-
-            if (marketTrend == null) marketTrend = Trend.SIDEWAYS.name();
-            if (sectorTrend == null) sectorTrend = Trend.SIDEWAYS.name();
-
-            String key = strategyName + "_" + marketTrend + "_" + sectorTrend;
-
-            grouped.computeIfAbsent(key, k -> new ArrayList<>()).add(metrics);
-        }
-
-        for (Map.Entry<String, List<TradeMetrics>> entry : grouped.entrySet()) {
-
-            List<TradeMetrics> metricsList = entry.getValue();
-
-            StrategyParams params =
-                    optimizeParams(metricsList, strategyName);
-
-            if (params == null) continue;
-
-            saveBehavior(
-                    ticker,
-                    sector,
-                    params,
-                    metricsList.size()
-            );
+                generateInsights(entry.getValue(), strat, ticker, sector, marketTrend, sectorTrend);
+            }
         }
     }
 
@@ -220,6 +184,26 @@ public class Analyzer {
 
         double entryPrice = trade.getEntryPrice();
 
+        // 🔥 ENTRY QUALITY CHECK
+        int lookahead = 5;
+        double threshold = 0.02;
+
+        double bestMove = 0;
+
+        for (int i = entryIndex + 1; i <= entryIndex + lookahead && i < candles.size(); i++) {
+
+            StockPriceDaily c = candles.get(i);
+            if (c == null) continue;
+
+            double move = (c.getHigh() - entryPrice) / entryPrice;
+
+            if (move > bestMove) bestMove = move;
+        }
+
+        result.setGoodEntry(bestMove >= threshold ? 1 : 0);
+        result.setBadEntry(bestMove < threshold ? 1 : 0);
+        result.setEntryMovePercent(bestMove);
+
         Trend marketTrend =
                 getTrend(niftyCandles, entryIndex, trade.getEntryDay());
 
@@ -240,7 +224,6 @@ public class Analyzer {
             if (i < 0 || i >= candles.size()) continue;
 
             StockPriceDaily candle = candles.get(i);
-
             if (candle == null) continue;
 
             if (candle.getHigh() > highest) {
@@ -261,48 +244,6 @@ public class Analyzer {
         double maePercent =
                 entryPrice != 0 ? (entryPrice - lowest) / entryPrice : 0;
 
-        int timeExitProfitable = 0;
-        int timeExitSideways = 0;
-        int timeExitLoss = 0;
-        int stoplossPremature = 0;
-        int stoplossValid = 0;
-
-        boolean isStopLoss =
-                trade.getExitReason() != null &&
-                        Exit.ReasonEnum.STOP_LOSS.getValue()
-                                .equals(trade.getExitReason().getValue());
-
-        double expectedProfit =
-                userExpectation.getExpectedProfitPercent() != null
-                        ? userExpectation.getExpectedProfitPercent() / 100
-                        : 0.03;
-
-        if (!isStopLoss) {
-
-            if (mfePercent >= expectedProfit && barsToPeak <= 15)
-                timeExitProfitable = 1;
-
-            else if (mfePercent < 0.01)
-                timeExitSideways = 1;
-
-            else if (maePercent > mfePercent)
-                timeExitLoss = 1;
-
-        } else {
-
-            if (mfePercent >= expectedProfit * 0.5)
-                stoplossPremature = 1;
-            else
-                stoplossValid = 1;
-        }
-
-        result.setTimeExitProfitable(timeExitProfitable);
-        result.setTimeExitSideways(timeExitSideways);
-        result.setTimeExitLoss(timeExitLoss);
-
-        result.setStoplossPremature(stoplossPremature);
-        result.setStoplossValid(stoplossValid);
-
         result.setAverageMfePercent(mfePercent);
         result.setAverageMaePercent(maePercent);
         result.setAverageBarsToPeak(barsToPeak);
@@ -310,107 +251,54 @@ public class Analyzer {
         return result;
     }
 
-    private StrategyParams optimizeParams(List<TradeMetrics> metricsList,
-                                          String strategy) {
+    private void generateInsights(List<TradeMetrics> metricsList,
+                                  String strategy,
+                                  String ticker,
+                                  String sector,
+                                  String marketTrend,
+                                  String sectorTrend) {
 
-        if (metricsList == null || metricsList.isEmpty()) return null;
+        int total = metricsList.size();
 
-        List<Double> mfeList = new ArrayList<>();
-        List<Double> maeList = new ArrayList<>();
-        List<Integer> barsList = new ArrayList<>();
+        int goodEntries = 0;
+        double totalMfe = 0;
+        double totalMae = 0;
+        int fastMoves = 0;
 
         for (TradeMetrics m : metricsList) {
+            goodEntries += m.getGoodEntry();
+            totalMfe += m.getMfe();
+            totalMae += m.getMae();
 
-            mfeList.add(m.getMfe());
-            maeList.add(m.getMae());
-            barsList.add(m.getBarsToPeak());
+            if (m.getBarsToPeak() <= 3) fastMoves++;
         }
 
-        Collections.sort(mfeList);
-        Collections.sort(maeList);
-        Collections.sort(barsList);
+        double accuracy = total > 0 ? (goodEntries * 100.0 / total) : 0;
+        double avgMfe = total > 0 ? totalMfe / total : 0;
+        double avgMae = total > 0 ? totalMae / total : 0;
+        double fastMovePercent = total > 0 ? (fastMoves * 100.0 / total) : 0;
 
-        double mfe70 = percentile(mfeList, 0.7);
-        double mae70 = percentile(maeList, 0.7);
-        int bars60 = barsList.get((int) (barsList.size() * 0.6));
+        log.info("==== INSIGHTS [{} | {}] ====", ticker, strategy);
+        log.info("Sector: {}", sector);
+        log.info("Market Trend: {}", marketTrend);
+        log.info("Sector Trend: {}", sectorTrend);
+        log.info("Trades: {}", total);
+        log.info("Entry Accuracy: {}%", accuracy);
+        log.info("Avg MFE: {}", avgMfe);
+        log.info("Avg MAE: {}", avgMae);
+        log.info("Fast Moves: {}%", fastMovePercent);
 
-        double stopLoss = Math.max(mae70 * 1.2, 0.005);
+        if (accuracy < 50)
+            log.warn("❌ Weak entries");
+        else if (accuracy < 65)
+            log.info("⚠️ Average entries");
+        else
+            log.info("✅ Strong edge");
 
-        double target = Math.max(mfe70 * 1.1, stopLoss * 2);
+        if (avgMae > avgMfe)
+            log.warn("❌ Drawdown > profit → bad timing");
 
-        int maxHolding = bars60 + 2;
-
-        StrategyParams params = new StrategyParams();
-
-        params.setStrategy(strategy);
-
-        params.setStopLossAtrMultiplier(stopLoss);
-        params.setTargetAtrMultiplier(target);
-        params.setTrailingStopAtrMultiplier(stopLoss * 0.75);
-
-        params.setMaxHoldingDays(maxHolding);
-
-        params.setMinRsi(40.0);
-        params.setMaxRsi(70.0);
-        params.setMinAdx(20.0);
-
-        params.setVolumeMultiplier(1.5);
-        params.setMinAtr(0.5);
-
-        params.setRiskRewardRatio(target / stopLoss);
-
-        log.info("Optimized Params -> {}", params);
-
-        return params;
-    }
-
-    private double percentile(List<Double> list, double p) {
-
-        int index = (int) Math.ceil(p * list.size()) - 1;
-
-        index = Math.max(0, Math.min(index, list.size() - 1));
-
-        return list.get(index);
-    }
-
-    private void saveBehavior(String ticker,
-                              String sector,
-                              StrategyParams params,
-                              int sampleTrades) {
-
-        try {
-
-            StockBehavior behavior = new StockBehavior();
-
-            behavior.setTicker(ticker);
-            behavior.setSector(sector);
-
-            behavior.setStrategyName(params.getStrategy());
-
-            behavior.setStopLossAtr(params.getStopLossAtrMultiplier());
-            behavior.setTargetAtr(params.getTargetAtrMultiplier());
-            behavior.setTrailingStopAtr(params.getTrailingStopAtrMultiplier());
-
-            behavior.setMaxHoldingDays(params.getMaxHoldingDays());
-
-            behavior.setMinRsi(params.getMinRsi());
-            behavior.setMaxRsi(params.getMaxRsi());
-            behavior.setMinAdx(params.getMinAdx());
-
-            behavior.setVolumeMultiplier(params.getVolumeMultiplier());
-            behavior.setMinAtr(params.getMinAtr());
-
-            behavior.setSampleTrades(sampleTrades);
-
-            stockBehaviorRepository.deleteByTickerAndStrategyName(
-                    ticker,
-                    behavior.getStrategyName());
-
-            stockBehaviorRepository.save(behavior);
-
-        } catch (Exception e) {
-
-            log.error("Failed saving behavior for ticker {}", ticker, e);
-        }
+        if (fastMovePercent < 40)
+            log.warn("⚠️ Slow moves → late entries");
     }
 }

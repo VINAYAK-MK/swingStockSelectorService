@@ -186,6 +186,58 @@
           }
         }
       }
+    },
+    "/api/selection/getShouldEnter": {
+      "post": {
+        "tags": [
+          "StockSelection"
+        ],
+        "summary": "Gets the stocks which one can take entry",
+        "description": "Runs the swing pullback backtesting engine for the given ticker list and returns trade results and performance metrics.",
+        "operationId": "getShouldEnter",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShouldEnterRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Backtest completed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShouldEnterResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -260,6 +312,29 @@
           "processedCount": {
             "type": "integer",
             "example": 3
+          }
+        }
+      },
+      "YahooRequest": {
+        "type": "object",
+        "required": ["tickers", "startDate", "endDate"],
+        "properties": {
+          "tickers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["TCS.NS", "INFY.NS"]
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-01-01"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2024-01-10"
           }
         }
       },
@@ -785,6 +860,16 @@
           "stoplossValid": {
             "type": "integer",
             "description": "Stop loss hit and price never recovered (correct stop loss)"
+          },
+          "goodEntry": {
+            "type": "integer"
+          },
+          "badEntry": {
+            "type": "integer"
+          },
+          "entryMovePercent": {
+            "type": "number",
+            "format": "double"
           }
         }
       },
@@ -808,6 +893,16 @@
             "type": "integer",
             "description": "Trade exited by time but price moved in the wrong direction"
           },
+          "goodEntry": {
+            "type": "integer"
+          },
+          "badEntry": {
+            "type": "integer"
+          },
+          "entryMovePercent": {
+            "type": "number",
+            "format": "double"
+          },
           "stoplossPremature": {
             "type": "integer",
             "description": "Stop loss hit but price later moved in the expected direction (stop loss too tight)"
@@ -815,6 +910,70 @@
           "stoplossValid": {
             "type": "integer",
             "description": "Stop loss hit and price never recovered (correct stop loss)"
+          }
+        }
+      },
+      "ShouldEnterRequest": {
+        "type": "object",
+        "required": ["tickers", "breakoutLookback", "minAtr"],
+        "properties": {
+          "tickers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "TATASTEEL.NS"
+            }
+          },
+          "breakoutLookback": {
+            "type": "integer",
+            "example": 20
+          },
+          "minAtr": {
+            "type": "number",
+            "format": "double",
+            "example": 5.0
+          }
+        }
+      },
+      "StockEntryResult": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "example": "TATASTEEL.NS"
+          },
+          "shouldEnter": {
+            "type": "boolean",
+            "example": true
+          },
+          "close": {
+            "type": "number",
+            "format": "double",
+            "example": 142.5
+          },
+          "highestHigh": {
+            "type": "number",
+            "format": "double",
+            "example": 140.0
+          },
+          "score": {
+            "type": "integer",
+            "example": 3
+          },
+          "reason": {
+            "type": "string",
+            "example": "Breakout Valid"
+          }
+        }
+      },
+      "ShouldEnterResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StockEntryResult"
+            }
           }
         }
       },

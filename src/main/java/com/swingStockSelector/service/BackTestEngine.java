@@ -58,7 +58,7 @@ public class BackTestEngine {
 
         List<Trade> trades = new ArrayList<>();
 
-        for (int i = 50; i < candles.size(); i++) {
+        for (int i = 0; i < candles.size(); i++) {
 
             StockPriceDaily yesterday = candles.get(i - 1);
             StockPriceDaily today = candles.get(i);
@@ -149,7 +149,7 @@ public class BackTestEngine {
 
         List<Trade> trades = new ArrayList<>();
 
-        for (int i = 50; i < candles.size(); i++) {
+        for (int i = 20; i < candles.size(); i++) {
 
             StockPriceDaily today = candles.get(i);
 

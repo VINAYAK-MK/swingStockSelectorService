@@ -7,6 +7,7 @@ import com.swingStockSelector.mapper.StockMapper;
 import com.swingStockSelector.model.*;
 import com.swingStockSelector.repository.StockBehaviorRepository;
 import com.swingStockSelector.repository.StockDailyRepository;
+import com.swingStockSelector.service.strategies.BreakoutStrategy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.knowm.xchart.BitmapEncoder;
@@ -35,6 +36,7 @@ public class SwingStockSelectorService {
     private final StockMapper mapper;
     private final PythonClient pyClient;
     private final BackTestEngine strategy;
+    private final BreakoutStrategy breakoutStrategy;
     private final Analyzer analyzer;
     private final StockBehaviorRepository stockBehaviorRepository;
 
@@ -296,6 +298,7 @@ public class SwingStockSelectorService {
             List<Double> closeData = new ArrayList<>();
             List<Double> highData  = new ArrayList<>();
             List<Double> lowData   = new ArrayList<>();
+            List<Double> openData = new ArrayList<>();
 
             for (StockPriceDaily candle : candles) {
                 LocalDate date = candle.getTradeDate();
@@ -308,6 +311,7 @@ public class SwingStockSelectorService {
                     closeData.add(candle.getClose());
                     highData.add(candle.getHigh());
                     lowData.add(candle.getLow());
+                    openData.add(candle.getOpen());
                 }
             }
 
@@ -325,11 +329,22 @@ public class SwingStockSelectorService {
             chart.addSeries("Close", xData, closeData);
             chart.addSeries("High", xData, highData);
             chart.addSeries("Low", xData, lowData);
+            chart.addSeries("Open", xData, openData);
 
             // Entry marker
-            chart.addSeries("Entry",
-                    List.of(java.sql.Date.valueOf(startDate)),
-                    List.of(trade.getEntryPrice()));
+            LocalDate actualEntryDate = null;
+
+            for (StockPriceDaily candle : candles) {
+                if (candle.getTradeDate().isAfter(startDate)) {
+                    actualEntryDate = candle.getTradeDate();
+                    break;
+                }
+            }
+            if (actualEntryDate != null) {
+                chart.addSeries("Entry",
+                        List.of(java.sql.Date.valueOf(actualEntryDate)),
+                        List.of(trade.getEntryPrice()));
+            }
 
             // Exit marker
             chart.addSeries("Exit",
@@ -356,5 +371,62 @@ public class SwingStockSelectorService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public ShouldEnterResponse getShouldEnter(ShouldEnterRequest request) {
+
+        List<StockEntryResult> results = new ArrayList<>();
+
+        StrategyParams params = new StrategyParams();
+        params.setBreakoutLookback(request.getBreakoutLookback());
+        params.setMinAtr(request.getMinAtr());
+
+        // 🔥 Get ALL distinct tickers from DB
+        List<String> tickers = stockDailyRepository.findAllDistinctTickers();
+        System.out.println(tickers);
+
+        for (String ticker : tickers) {
+
+            List<StockPriceDaily> candles =
+                    stockDailyRepository.findByTickerOrderByTradeDateAsc(ticker);
+
+            if (candles == null || candles.size() <= request.getBreakoutLookback()) {
+
+                StockEntryResult result = new StockEntryResult();
+                result.setTicker(ticker);
+                result.setShouldEnter(false);
+                result.setReason("Not enough data");
+
+                results.add(result);
+                continue;
+            }
+
+            int lastIndex = candles.size() - 1;
+            StockPriceDaily today = candles.get(lastIndex);
+
+            boolean shouldEnter =
+                    breakoutStrategy.shouldEnter(candles, lastIndex, params);
+
+            double highestHigh = candles.subList(
+                            lastIndex - request.getBreakoutLookback(),
+                            lastIndex
+                    ).stream()
+                    .mapToDouble(StockPriceDaily::getHigh)
+                    .max()
+                    .orElse(0);
+
+            StockEntryResult result = new StockEntryResult();
+            result.setTicker(ticker);
+            result.setShouldEnter(shouldEnter);
+            result.setClose(today.getClose());
+            result.setHighestHigh(highestHigh);
+            result.setReason(shouldEnter ? "Breakout Valid" : "Conditions Not Met");
+
+            results.add(result);
+        }
+
+        ShouldEnterResponse response = new ShouldEnterResponse();
+        response.setResults(results);
+        return response;
     }
 }

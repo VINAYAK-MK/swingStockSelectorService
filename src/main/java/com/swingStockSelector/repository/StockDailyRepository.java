@@ -27,4 +27,15 @@ public interface StockDailyRepository extends JpaRepository<StockPriceDaily, Lon
 
 
     List<StockPriceDaily> findByTickerOrderByTradeDateAsc(String ticker);
+
+    StockPriceDaily findTopByTickerOrderByTradeDateDesc(String ticker);
+
+    @Query("SELECT DISTINCT s.ticker FROM StockPriceDaily s")
+    List<String> findDistinctTickers();
+
+    @Query("SELECT MAX(s.tradeDate) FROM StockPriceDaily s WHERE s.ticker = :ticker")
+    LocalDate findLastDateByTicker(String ticker);
+
+    @Query("SELECT DISTINCT s.ticker FROM StockPriceDaily s")
+    List<String> findAllDistinctTickers();
 }

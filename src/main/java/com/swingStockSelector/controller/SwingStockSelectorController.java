@@ -1,11 +1,9 @@
 package com.swingStockSelector.controller;
 
 
-import com.swingStockSelector.model.ProcessTickerRequest;
-import com.swingStockSelector.model.ProcessTickerResponse;
+import com.swingStockSelector.model.*;
 import com.swingStockSelector.service.SwingStockSelectorService;
 import com.swingStockSelector.api.StockSelectionApi;
-import com.swingStockSelector.model.TopLongResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -29,5 +27,8 @@ public class SwingStockSelectorController implements StockSelectionApi {
         return ResponseEntity.ok(swingStockSelectorService.processTickers(processTickerRequest));
     }
 
-
+    @Override
+    public ResponseEntity<ShouldEnterResponse> getShouldEnter(ShouldEnterRequest shouldEnterRequest) {
+        return ResponseEntity.ok(swingStockSelectorService.getShouldEnter(shouldEnterRequest));
+    }
 }

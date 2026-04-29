@@ -2,6 +2,8 @@ spring:
   application:
     name: swingStockSelector
 
+  main:
+    headless: false
   datasource:
     url: jdbc:h2:file:./data/stockdb
     driver-class-name: org.h2.Driver
@@ -24,3 +26,4 @@ python:
     baseUrl: http://localhost:8000
     username: user
     password: password
+
