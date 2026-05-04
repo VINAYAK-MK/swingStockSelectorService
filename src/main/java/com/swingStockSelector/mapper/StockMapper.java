@@ -56,17 +56,39 @@ public interface StockMapper {
     StockPriceDaily mapToEntity(String ticker, DailyIndicator daily);
 
 
-    @Mapping(source = "strategyName", target = "strategy")
-    @Mapping(source = "stopLossAtr", target = "stopLossAtrMultiplier")
-    @Mapping(source = "targetAtr", target = "targetAtrMultiplier")
-    @Mapping(source = "maxHoldingDays", target = "maxHoldingDays")
-    @Mapping(source = "minRsi", target = "minRsi")
-    @Mapping(source = "maxRsi", target = "maxRsi")
-    @Mapping(source = "minAdx", target = "minAdx")
-    @Mapping(source = "volumeMultiplier", target = "volumeMultiplier")
-    @Mapping(source = "breakoutLookback", target = "breakoutLookback")
-    @Mapping(source = "minAtr", target = "minAtr")
-    @Mapping(source = "trailingStopAtr", target = "trailingStopAtrMultiplier")
-    @Mapping(ignore = true, target = "riskRewardRatio")
+    @Mapping(target = "strategy", source = "strategyName")
+
+    // Risk
+    @Mapping(target = "stopLossAtrMultiplier", source = "stopLossAtr")
+    @Mapping(target = "targetAtrMultiplier", source = "targetAtr")
+    @Mapping(target = "trailingStopAtrMultiplier", source = "trailingStopAtr")
+
+    // Core filters
+    @Mapping(target = "maxHoldingDays", source = "maxHoldingDays")
+    @Mapping(target = "minRsi", source = "minRsi")
+    @Mapping(target = "maxRsi", source = "maxRsi")
+    @Mapping(target = "minAdx", source = "minAdx")
+    @Mapping(target = "volumeMultiplier", source = "volumeMultiplier")
+    @Mapping(target = "breakoutLookback", source = "breakoutLookback")
+    @Mapping(target = "minAtr", source = "minAtr")
+
+    // Breakout tuning
+    @Mapping(target = "breakoutBuffer", source = "breakoutBuffer")
+    @Mapping(target = "minAtrMultiplier", source = "minAtrMultiplier")
+    @Mapping(target = "maxExtension", source = "maxExtension")
+    @Mapping(target = "maxCandleAtrMultiplier", source = "maxCandleAtrMultiplier")
+    @Mapping(target = "recentSpikeThreshold", source = "recentSpikeThreshold")
+    @Mapping(target = "strongCloseRatio", source = "strongCloseRatio")
+
+    // Feature flags
+    @Mapping(target = "useTrendFilter", source = "useTrendFilter")
+    @Mapping(target = "useFollowThrough", source = "useFollowThrough")
+    @Mapping(target = "useStrongClose", source = "useStrongClose")
+    @Mapping(target = "useRsiFilter", source = "useRsiFilter")
+    @Mapping(target = "useExhaustionFilter", source = "useExhaustionFilter")
+    @Mapping(target = "useExtensionFilter", source = "useExtensionFilter")
+
+    // Decision
+    @Mapping(target = "minScore", source = "minScore")
     StrategyParams mapToStrategyParams(StockBehavior stockBehavior);
 }

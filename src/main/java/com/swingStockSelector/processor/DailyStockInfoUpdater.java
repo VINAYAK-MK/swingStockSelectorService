@@ -12,6 +12,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -76,18 +77,25 @@ public class DailyStockInfoUpdater implements ApplicationRunner {
         }
 
         // 3. Get previous stored row (IMPORTANT)
-        StockPriceDaily prevDayData =
-                stockDailyRepository.findTopByTickerOrderByTradeDateDesc(ticker);
+        List<StockPriceDaily> history =
+                stockDailyRepository
+                        .findTop20ByTickerOrderByTradeDateDesc(ticker);
+
+        Collections.reverse(history);
 
         // 4. Process each new day
         for (Map<String, Object> dayData : newData) {
 
             StockPriceDaily newRecord =
-                    indicatorService.calculateFromPrevious(prevDayData, dayData);
+                    indicatorService.calculateFromHistory(history, dayData);
 
             stockDailyRepository.save(newRecord);
 
-            prevDayData = newRecord; // update for next iteration
+            history.add(newRecord);
+
+            if (history.size() > 20) {
+                history.remove(0);
+            }
         }
 
         log.info("Updated ticker {} with {} new records", ticker, newData.size());

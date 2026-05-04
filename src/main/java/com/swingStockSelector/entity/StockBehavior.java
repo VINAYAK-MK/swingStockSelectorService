@@ -39,4 +39,42 @@ public class StockBehavior {
     private double minAtr;
 
     private int sampleTrades;
+
+    // ---------------------------------
+    // BREAKOUT TUNING PARAMS
+    // ---------------------------------
+
+    private Double breakoutBuffer;
+
+    private Double minAtrMultiplier;
+
+    private Double maxExtension;
+
+    private Double maxCandleAtrMultiplier;
+
+    private Double recentSpikeThreshold;
+
+    private Double strongCloseRatio;
+
+    // ---------------------------------
+    // FEATURE FLAGS
+    // ---------------------------------
+
+    private Boolean useTrendFilter;
+
+    private Boolean useFollowThrough;
+
+    private Boolean useStrongClose;
+
+    private Boolean useRsiFilter;
+
+    private Boolean useExhaustionFilter;
+
+    private Boolean useExtensionFilter;
+
+    // ---------------------------------
+    // DECISION PARAMS
+    // ---------------------------------
+
+    private Integer minScore;
 }

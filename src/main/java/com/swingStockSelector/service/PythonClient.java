@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
@@ -24,7 +25,7 @@ public class PythonClient {
     public Map<String, List<Map<String, Object>>> getYahooData(YahooRequest request) {
 
         RestTemplate restTemplate = config.restTemplate();
-        String url = config.getBaseUrl() + "/yahoo-data";
+        String url = config.getBaseUrl() + "/fetchDaysData";
 
         return restTemplate.postForObject(
                 url,
@@ -34,16 +35,26 @@ public class PythonClient {
     }
 
     @Async("batchExecutor")
-    public CompletableFuture<List<TickerIndicatorResponse>> calculateIndicators(List<String> tickers) {
+    public CompletableFuture<List<TickerIndicatorResponse>> calculateIndicators(List<String> tickers, String date) {
 
         RestTemplate restTemplate = config.restTemplate();
         String url =  config.getBaseUrl() + "/calculate";
         System.out.println(url);
 
+        YahooRequest request = new YahooRequest();
+
+        request.setTickers(tickers);
+
+        request.setStartDate(
+                LocalDate.now().minusYears(3)
+        );
+
+        request.setEndDate(LocalDate.parse(date));
+
         TickerIndicatorResponse[] response =
                 restTemplate.postForObject(
                         url,
-                        tickers,
+                        request,
                         TickerIndicatorResponse[].class
                 );
         List<TickerIndicatorResponse> responseList =

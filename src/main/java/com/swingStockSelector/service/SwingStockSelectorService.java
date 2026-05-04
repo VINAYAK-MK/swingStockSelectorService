@@ -10,6 +10,7 @@ import com.swingStockSelector.repository.StockDailyRepository;
 import com.swingStockSelector.service.strategies.BreakoutStrategy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.knowm.xchart.BitmapEncoder;
 import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
@@ -94,7 +95,7 @@ public class SwingStockSelectorService {
            //  Trigger async calls
             List<CompletableFuture<List<TickerIndicatorResponse>>> futures =
                     batchedTickers.stream()
-                            .map(pyClient::calculateIndicators)
+                            .map(batch -> pyClient.calculateIndicators(batch, processTickerRequest.getTradeDate()))
                             .toList();
 
             //  Wait for all to complete
@@ -200,7 +201,7 @@ public class SwingStockSelectorService {
                 paramsMap.computeIfAbsent(strategy, this::getDefaultParams);
             }
 
-            if (candles == null || candles.isEmpty()) {
+            if (candles.isEmpty()) {
                 continue;
             }
 
@@ -377,18 +378,46 @@ public class SwingStockSelectorService {
 
         List<StockEntryResult> results = new ArrayList<>();
 
-        StrategyParams params = new StrategyParams();
-        params.setBreakoutLookback(request.getBreakoutLookback());
-        params.setMinAtr(request.getMinAtr());
+        List<String> tickers;
+        if(CollectionUtils.isEmpty(request.getTickers())){
+            tickers = stockDailyRepository.findAllDistinctTickers();
+        }
+        else{
+            tickers = request.getTickers();
+        }
 
-        // 🔥 Get ALL distinct tickers from DB
-        List<String> tickers = stockDailyRepository.findAllDistinctTickers();
-        System.out.println(tickers);
 
         for (String ticker : tickers) {
 
             List<StockPriceDaily> candles =
                     stockDailyRepository.findByTickerOrderByTradeDateAsc(ticker);
+
+            List<StockBehavior> stockBehaviors = stockBehaviorRepository.findByTicker(ticker);
+
+            Map<String, StrategyParams> paramsMap =
+                    stockBehaviors.stream()
+                            .map(mapper::mapToStrategyParams)
+                            .filter(Objects::nonNull)
+                            .filter(p -> p.getStrategy() != null)
+                            .collect(Collectors.toMap(
+                                    StrategyParams::getStrategy,
+                                    p -> mergeWithDefaults(p),
+                                    (existing, replacement) -> existing
+                            ));
+
+            List<String> allStrategies = Arrays.asList(
+                    PULLBACK,
+                    MOMENTUM,
+                    BREAKOUT,
+                    MEAN_REVERSION
+            );
+
+            for (String strategy : allStrategies) {
+                paramsMap.computeIfAbsent(
+                        strategy,
+                        this::getDefaultParams
+                );
+            }
 
             if (candles == null || candles.size() <= request.getBreakoutLookback()) {
 
@@ -401,11 +430,43 @@ public class SwingStockSelectorService {
                 continue;
             }
 
-            int lastIndex = candles.size() - 1;
-            StockPriceDaily today = candles.get(lastIndex);
+            int lastIndex = 0;
+            StockPriceDaily today;
+            if (StringUtils.isBlank(request.getDate())) {
 
+                // No date passed → use latest candle
+                lastIndex = candles.size() - 1;
+                today = candles.get(lastIndex);
+
+            } else {
+
+                LocalDate requestedDate = LocalDate.parse(request.getDate());
+
+                // Find requested candle index
+                int requestedIndex = -1;
+
+                for (int i = 0; i < candles.size(); i++) {
+                    if (candles.get(i).getTradeDate().equals(requestedDate)) {
+                        requestedIndex = i;
+                        break;
+                    }
+                }
+
+                if (requestedIndex <= 0) {
+                    throw new IllegalArgumentException(
+                            "No previous candle found for date: " + requestedDate
+                    );
+                }
+
+                // Pick previous available trading day
+                lastIndex = requestedIndex - 1;
+                today = candles.get(lastIndex);
+
+            }
+
+            System.out.println("-----" + stockBehaviors);
             boolean shouldEnter =
-                    breakoutStrategy.shouldEnter(candles, lastIndex, params);
+                    breakoutStrategy.shouldEnter(candles, lastIndex, paramsMap.get(BREAKOUT));
 
             double highestHigh = candles.subList(
                             lastIndex - request.getBreakoutLookback(),
@@ -428,5 +489,65 @@ public class SwingStockSelectorService {
         ShouldEnterResponse response = new ShouldEnterResponse();
         response.setResults(results);
         return response;
+    }
+
+    private StrategyParams mergeWithDefaults(
+            StrategyParams dbParams) {
+
+        StrategyParams defaults =
+                getDefaultParams(
+                        dbParams.getStrategy()
+                );
+
+        if (dbParams.getStopLossAtrMultiplier() != null)
+            defaults.setStopLossAtrMultiplier(
+                    dbParams.getStopLossAtrMultiplier());
+
+        if (dbParams.getTargetAtrMultiplier() != null)
+            defaults.setTargetAtrMultiplier(
+                    dbParams.getTargetAtrMultiplier());
+
+        if (dbParams.getTrailingStopAtrMultiplier() != null)
+            defaults.setTrailingStopAtrMultiplier(
+                    dbParams.getTrailingStopAtrMultiplier());
+
+        if (dbParams.getMinRsi() != null)
+            defaults.setMinRsi(dbParams.getMinRsi());
+
+        if (dbParams.getMaxRsi() != null)
+            defaults.setMaxRsi(dbParams.getMaxRsi());
+
+        if (dbParams.getMinAdx() != null)
+            defaults.setMinAdx(dbParams.getMinAdx());
+
+        if (dbParams.getVolumeMultiplier() != null)
+            defaults.setVolumeMultiplier(
+                    dbParams.getVolumeMultiplier());
+
+        if (dbParams.getBreakoutLookback() != null)
+            defaults.setBreakoutLookback(
+                    dbParams.getBreakoutLookback());
+
+        if (dbParams.getMinAtr() != null)
+            defaults.setMinAtr(dbParams.getMinAtr());
+
+        // breakout fields
+        defaults.setBreakoutBuffer(dbParams.getBreakoutBuffer());
+        defaults.setMinAtrMultiplier(dbParams.getMinAtrMultiplier());
+        defaults.setMaxExtension(dbParams.getMaxExtension());
+        defaults.setMaxCandleAtrMultiplier(dbParams.getMaxCandleAtrMultiplier());
+        defaults.setRecentSpikeThreshold(dbParams.getRecentSpikeThreshold());
+        defaults.setStrongCloseRatio(dbParams.getStrongCloseRatio());
+
+        defaults.setUseTrendFilter(dbParams.getUseTrendFilter());
+        defaults.setUseFollowThrough(dbParams.getUseFollowThrough());
+        defaults.setUseStrongClose(dbParams.getUseStrongClose());
+        defaults.setUseRsiFilter(dbParams.getUseRsiFilter());
+        defaults.setUseExhaustionFilter(dbParams.getUseExhaustionFilter());
+        defaults.setUseExtensionFilter(dbParams.getUseExtensionFilter());
+
+        defaults.setMinScore(dbParams.getMinScore());
+
+        return defaults;
     }
 }

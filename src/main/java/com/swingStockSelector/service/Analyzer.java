@@ -23,44 +23,42 @@ public class Analyzer {
     private final StockDailyRepository stockDailyRepository;
     private final StockBehaviorRepository stockBehaviorRepository;
 
-    public Trend getTrend(List<StockPriceDaily> candles, int index, String entryDay) {
+    // 🔥 FIX 1: FIND INDEX BY DATE (CRITICAL)
+    private int findIndexByDate(List<StockPriceDaily> candles, String tradeDate) {
+        if (candles == null || tradeDate == null) return -1;
+
+        for (int i = 0; i < candles.size(); i++) {
+            if (tradeDate.equals(String.valueOf(candles.get(i).getTradeDate()))) {
+                return i;
+            }
+        }
+        return candles.size() - 1; // fallback
+    }
+
+    // 🔥 FIX 2: BETTER TREND LOGIC (multi-candle confirmation)
+    public Trend getTrend(List<StockPriceDaily> candles, int index) {
 
         if (candles == null || candles.isEmpty()) return Trend.SIDEWAYS;
 
-        int window = 3;
+        int bullish = 0;
+        int bearish = 0;
 
-        int start = Math.max(0, index - window);
-        int end = Math.min(candles.size() - 1, index + window);
-
-        StockPriceDaily day = null;
-
-        for (int i = start; i <= end; i++) {
+        for (int i = index - 2; i <= index; i++) {
 
             if (i < 0 || i >= candles.size()) continue;
 
-            StockPriceDaily candle = candles.get(i);
+            StockPriceDaily c = candles.get(i);
+            if (c == null) continue;
 
-            if (candle != null &&
-                    entryDay != null &&
-                    entryDay.equals(String.valueOf(candle.getTradeDate()))) {
+            if (c.getEma20() > c.getEma50() && c.getClose() > c.getEma20())
+                bullish++;
 
-                day = candle;
-                break;
-            }
+            if (c.getEma20() < c.getEma50() && c.getClose() < c.getEma20())
+                bearish++;
         }
 
-        if (day == null) {
-
-            if (index < 0 || index >= candles.size())
-                index = candles.size() - 1;
-
-            day = candles.get(index);
-        }
-
-        if (day == null) return Trend.SIDEWAYS;
-
-        if (day.getEma20() > day.getEma50()) return Trend.BULLISH;
-        if (day.getEma20() < day.getEma50()) return Trend.BEARISH;
+        if (bullish >= 2) return Trend.BULLISH;
+        if (bearish >= 2) return Trend.BEARISH;
 
         return Trend.SIDEWAYS;
     }
@@ -130,14 +128,6 @@ public class Analyzer {
                 metrics.setMarketTrend(tradeResult.getMarketTrend());
                 metrics.setSectorTrend(tradeResult.getSectorTrend());
 
-                metrics.setTimeExitProfitable(tradeResult.getTimeExitProfitable());
-                metrics.setTimeExitSideways(tradeResult.getTimeExitSideways());
-                metrics.setTimeExitLoss(tradeResult.getTimeExitLoss());
-
-                metrics.setStoplossPremature(tradeResult.getStoplossPremature());
-                metrics.setStoplossValid(tradeResult.getStoplossValid());
-
-                // 🔥 NEW: Entry quality
                 metrics.setGoodEntry(tradeResult.getGoodEntry());
                 metrics.setBadEntry(tradeResult.getBadEntry());
                 metrics.setEntryMovePercent(tradeResult.getEntryMovePercent());
@@ -150,7 +140,6 @@ public class Analyzer {
                 grouped.computeIfAbsent(key, k -> new ArrayList<>()).add(metrics);
             }
 
-            // 🔥 Instead of optimization → insights
             for (Map.Entry<String, List<TradeMetrics>> entry : grouped.entrySet()) {
                 String[] parts = entry.getKey().split("_");
 
@@ -184,19 +173,17 @@ public class Analyzer {
 
         double entryPrice = trade.getEntryPrice();
 
-        // 🔥 ENTRY QUALITY CHECK
+        // 🔥 ENTRY QUALITY
         int lookahead = 5;
         double threshold = 0.02;
 
         double bestMove = 0;
 
         for (int i = entryIndex + 1; i <= entryIndex + lookahead && i < candles.size(); i++) {
-
             StockPriceDaily c = candles.get(i);
             if (c == null) continue;
 
             double move = (c.getHigh() - entryPrice) / entryPrice;
-
             if (move > bestMove) bestMove = move;
         }
 
@@ -204,13 +191,15 @@ public class Analyzer {
         result.setBadEntry(bestMove < threshold ? 1 : 0);
         result.setEntryMovePercent(bestMove);
 
-        Trend marketTrend =
-                getTrend(niftyCandles, entryIndex, trade.getEntryDay());
+        // 🔥 FIXED TREND CALCULATION (DATE ALIGNED)
+        int niftyIndex = findIndexByDate(niftyCandles, trade.getEntryDay());
+        Trend marketTrend = getTrend(niftyCandles, niftyIndex);
 
-        Trend sectorTrend =
-                sectorCandles != null
-                        ? getTrend(sectorCandles, entryIndex, trade.getEntryDay())
-                        : Trend.SIDEWAYS;
+        Trend sectorTrend = Trend.SIDEWAYS;
+        if (sectorCandles != null) {
+            int sectorIndex = findIndexByDate(sectorCandles, trade.getEntryDay());
+            sectorTrend = getTrend(sectorCandles, sectorIndex);
+        }
 
         result.setMarketTrend(marketTrend.name());
         result.setSectorTrend(sectorTrend.name());
@@ -238,11 +227,8 @@ public class Analyzer {
 
         int barsToPeak = peakIndex - entryIndex;
 
-        double mfePercent =
-                entryPrice != 0 ? (highest - entryPrice) / entryPrice : 0;
-
-        double maePercent =
-                entryPrice != 0 ? (entryPrice - lowest) / entryPrice : 0;
+        double mfePercent = entryPrice != 0 ? (highest - entryPrice) / entryPrice : 0;
+        double maePercent = entryPrice != 0 ? (entryPrice - lowest) / entryPrice : 0;
 
         result.setAverageMfePercent(mfePercent);
         result.setAverageMaePercent(maePercent);

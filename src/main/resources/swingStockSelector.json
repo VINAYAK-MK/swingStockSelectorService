@@ -767,6 +767,9 @@
             "format": "double",
             "description": "Multiplier applied to average volume to confirm strong participation"
           },
+          "ticker": {
+            "type": "string"
+          },
           "breakoutLookback": {
             "type": "integer",
             "format": "int32",
@@ -786,6 +789,67 @@
             "type": "number",
             "format": "double",
             "description": "Desired risk reward ratio for trade target calculation"
+          },
+          "breakoutBuffer": {
+            "type": "number",
+            "format": "double",
+            "description": "Multiplier applied to resistance level for breakout confirmation"
+          },
+          "minAtrMultiplier": {
+            "type": "number",
+            "format": "double",
+            "description": "Multiplier applied on minimum ATR filter"
+          },
+          "maxExtension": {
+            "type": "number",
+            "format": "double",
+            "description": "Maximum allowed extension above breakout level"
+          },
+          "maxCandleAtrMultiplier": {
+            "type": "number",
+            "format": "double",
+            "description": "Maximum candle range allowed relative to ATR to avoid exhaustion candles"
+          },
+          "recentSpikeThreshold": {
+            "type": "number",
+            "format": "double",
+            "description": "Threshold to detect recent spike before breakout"
+          },
+          "strongCloseRatio": {
+            "type": "number",
+            "format": "double",
+            "description": "Minimum close position within candle range for strong close confirmation"
+          },
+
+          "useTrendFilter": {
+            "type": "boolean",
+            "description": "Enable EMA trend alignment filter"
+          },
+          "useFollowThrough": {
+            "type": "boolean",
+            "description": "Require next candle follow-through confirmation"
+          },
+          "useStrongClose": {
+            "type": "boolean",
+            "description": "Require breakout candle to close near highs"
+          },
+          "useRsiFilter": {
+            "type": "boolean",
+            "description": "Enable RSI entry filter"
+          },
+          "useExhaustionFilter": {
+            "type": "boolean",
+            "description": "Avoid large exhaustion candles"
+          },
+          "useExtensionFilter": {
+            "type": "boolean",
+            "description": "Avoid overextended breakout entries"
+          },
+
+          "minScore": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum number of entry conditions that must pass"
           }
         }
       },
@@ -932,6 +996,9 @@
             "type": "number",
             "format": "double",
             "example": 5.0
+          },
+          "date": {
+            "type": "string"
           }
         }
       },

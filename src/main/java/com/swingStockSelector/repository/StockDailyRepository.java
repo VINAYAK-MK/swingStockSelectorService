@@ -38,4 +38,6 @@ public interface StockDailyRepository extends JpaRepository<StockPriceDaily, Lon
 
     @Query("SELECT DISTINCT s.ticker FROM StockPriceDaily s")
     List<String> findAllDistinctTickers();
+
+    List<StockPriceDaily> findTop20ByTickerOrderByTradeDateDesc(String ticker);
 }
