@@ -1,0 +1,379 @@
+from fastapi import FastAPI
+from typing import List
+import yfinance as yf
+import pandas as pd
+import numpy as np
+from pydantic import BaseModel
+from datetime import date
+from typing import Dict, Any
+
+class YahooDataRequest(BaseModel):
+    tickers: List[str]
+    startDate: date
+    endDate: date
+
+app = FastAPI()
+
+# =============================
+# UTIL
+# =============================
+
+def normalize_columns(df):
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = df.columns.get_level_values(0)
+
+    # Remove duplicate columns
+    df = df.loc[:, ~df.columns.duplicated()]
+    return df
+
+
+# =============================
+# INDICATORS
+# =============================
+
+def add_ema(df, period):
+    df[f"ema{period}"] = df["Close"].ewm(span=period, adjust=False).mean()
+    return df
+
+def add_adx(df, period=14):
+
+    high = df["High"]
+    low = df["Low"]
+    close = df["Close"]
+
+    plus_dm = high.diff()
+    minus_dm = low.diff() * -1
+
+    plus_dm[plus_dm < 0] = 0
+    minus_dm[minus_dm < 0] = 0
+
+    tr1 = high - low
+    tr2 = (high - close.shift()).abs()
+    tr3 = (low - close.shift()).abs()
+
+    true_range = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+
+    atr = true_range.rolling(period).mean()
+
+    plus_di = 100 * (plus_dm.rolling(period).mean() / atr)
+    minus_di = 100 * (minus_dm.rolling(period).mean() / atr)
+
+    dx = (abs(plus_di - minus_di) / (plus_di + minus_di)) * 100
+
+    df[f"adx{period}"] = dx.rolling(period).mean()
+
+    return df
+
+def add_bollinger_bands(df, period=20, std_dev=2):
+
+    sma = df["Close"].rolling(period).mean()
+    std = df["Close"].rolling(period).std()
+
+    df["bbMiddle"] = sma
+    df["bbUpper"] = sma + (std_dev * std)
+    df["bbLower"] = sma - (std_dev * std)
+
+    return df
+
+
+def add_rsi(df, period):
+
+    close = df["Close"]
+
+    # Safety: convert (n,1) to (n,)
+    if isinstance(close, pd.DataFrame):
+        close = close.squeeze()
+
+    delta = close.diff()
+
+    gain = delta.clip(lower=0)
+    loss = -delta.clip(upper=0)
+
+    avg_gain = gain.rolling(period).mean()
+    avg_loss = loss.rolling(period).mean()
+
+    rs = avg_gain / avg_loss.replace(0, np.nan)
+
+    df[f"rsi{period}"] = 100 - (100 / (1 + rs))
+
+    return df
+
+
+def add_macd(df):
+    ema12 = df["Close"].ewm(span=12, adjust=False).mean()
+    ema26 = df["Close"].ewm(span=26, adjust=False).mean()
+
+    df["macd"] = ema12 - ema26
+    df["macd_signal"] = df["macd"].ewm(span=9, adjust=False).mean()
+    df["macd_hist"] = df["macd"] - df["macd_signal"]
+
+    return df
+
+
+def add_atr(df, period=14):
+    high_low = df["High"] - df["Low"]
+    high_close = (df["High"] - df["Close"].shift()).abs()
+    low_close = (df["Low"] - df["Close"].shift()).abs()
+
+    true_range = pd.concat([high_low, high_close, low_close], axis=1).max(axis=1)
+    df[f"atr{period}"] = true_range.rolling(period).mean()
+
+    return df
+
+
+def add_volume_avg(df, period=20):
+    df[f"volume_avg{period}"] = df["Volume"].rolling(period).mean()
+    return df
+
+
+# =============================
+# API
+# =============================
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import List
+from datetime import date
+import yfinance as yf
+import pandas as pd
+import numpy as np
+import math
+
+app = FastAPI()
+
+
+class YahooRequest(BaseModel):
+    tickers: List[str]
+    startDate: date
+    endDate: date
+
+
+def clean_value(value):
+
+    # if Series, take first scalar value
+    if isinstance(value, pd.Series):
+        if value.empty:
+            return None
+        value = value.iloc[0]
+
+    if pd.isna(value):
+        return None
+
+    # timestamp
+    if isinstance(value, pd.Timestamp):
+        return value.date().isoformat()
+
+    # numpy -> python
+    if hasattr(value, "item"):
+        value = value.item()
+
+    # float cleanup
+    if isinstance(value, float):
+        if math.isnan(value) or math.isinf(value):
+            return None
+
+    return value
+    """
+    Converts pandas/numpy values into JSON-safe values
+    """
+
+    if pd.isna(value):
+        return None
+
+    # pandas timestamp → string
+    if isinstance(value, pd.Timestamp):
+        return value.date().isoformat()
+
+    # numpy types → python types
+    if hasattr(value, "item"):
+        value = value.item()
+
+    # invalid floats
+    if isinstance(value, float):
+        if math.isnan(value) or math.isinf(value):
+            return None
+
+    return value
+
+
+@app.post("/fetchDaysData")
+def fetch_days_data(request: YahooRequest):
+
+    result = {}
+
+    for ticker in request.tickers:
+
+        try:
+            df = yf.download(
+                ticker,
+                start=request.startDate,
+                end=request.endDate,
+                interval="1d",
+                progress=False,
+                auto_adjust=False
+            )
+
+            if df.empty:
+                result[ticker] = []
+                continue
+
+            df = df.reset_index()
+
+            records = []
+
+            for _, row in df.iterrows():
+
+                records.append({
+                    "tradeDate": clean_value(row["Date"]),
+                    "open": clean_value(row["Open"]),
+                    "high": clean_value(row["High"]),
+                    "low": clean_value(row["Low"]),
+                    "close": clean_value(row["Close"]),
+                    "volume": clean_value(row["Volume"])
+                })
+
+            result[ticker] = records
+
+        except Exception as e:
+            result[ticker] = {
+                "error": str(e)
+            }
+
+    return result
+
+    result: Dict[str, List[Dict[str, Any]]] = {}
+
+    for ticker in request.tickers:
+
+        try:
+            df = yf.download(
+                ticker,
+                start=request.startDate.strftime("%Y-%m-%d"),
+                end=request.endDate.strftime("%Y-%m-%d"),
+                interval="1d",
+                progress=False,
+                auto_adjust=False
+            )
+
+            if df.empty:
+                result[ticker] = []
+                continue
+
+            df.reset_index(inplace=True)
+
+            rows = []
+
+            for _, row in df.iterrows():
+
+                rows.append({
+                    "Date": row["Date"].isoformat(),
+                    "Open": clean_value(row["Open"]),
+                    "High": clean_value(row["High"]),
+                    "Low": clean_value(row["Low"]),
+                    "Close": clean_value(row["Close"]),
+                    "Volume": clean_value(row["Volume"])
+                })
+
+            result[ticker] = rows
+
+        except Exception as e:
+            result[ticker] = [{
+                "error": str(e)
+            }]
+
+    return result
+
+@app.post("/calculate")
+def calculate(request: YahooDataRequest):
+
+    if not request.tickers:
+        raise HTTPException(
+            status_code=400,
+            detail="Tickers list cannot be empty"
+        )
+
+    final_response = []
+
+    # include end date fully
+    actual_end = pd.to_datetime(request.endDate) + pd.Timedelta(days=1)
+
+    for ticker in request.tickers:
+
+        try:
+            data = yf.download(
+                ticker,
+                start=request.startDate,
+                end=actual_end,
+                interval="1d",
+                progress=False
+            )
+
+            if data.empty:
+                final_response.append({
+                    "ticker": ticker,
+                    "data": []
+                })
+                continue
+
+            data = normalize_columns(data)
+
+            # indicator calculations...
+            data = add_ema(data, 20)
+            data = add_ema(data, 50)
+            data = add_ema(data, 200)
+
+            data = add_rsi(data, 14)
+            data = add_rsi(data, 20)
+
+            data = add_macd(data)
+            data = add_atr(data, 14)
+            data = add_volume_avg(data, 20)
+            data = add_adx(data, 14)
+            data = add_bollinger_bands(data)
+
+            data = data.reset_index()
+            data = data.replace({np.nan: None})
+
+            records = []
+
+            for _, row in data.iterrows():
+                records.append({
+                    "tradeDate": row["Date"].date().isoformat(),
+                    "open": row.get("Open"),
+                    "high": row.get("High"),
+                    "low": row.get("Low"),
+                    "close": row.get("Close"),
+                    "volume": row.get("Volume"),
+
+                    "ema20": row.get("ema20"),
+                    "ema50": row.get("ema50"),
+                    "ema200": row.get("ema200"),
+
+                    "rsi14": row.get("rsi14"),
+                    "rsi20": row.get("rsi20"),
+
+                    "macd": row.get("macd"),
+                    "macdSignal": row.get("macd_signal"),
+                    "macdHist": row.get("macd_hist"),
+
+                    "atr14": row.get("atr14"),
+                    "volumeAvg20": row.get("volume_avg20"),
+                    "adx14": row.get("adx14"),
+
+                    "bbUpper": row.get("bbUpper"),
+                    "bbMiddle": row.get("bbMiddle"),
+                    "bbLower": row.get("bbLower")
+                })
+
+            final_response.append({
+                "ticker": ticker,
+                "data": records
+            })
+
+        except Exception as e:
+            final_response.append({
+                "ticker": ticker,
+                "error": str(e)
+            })
+
+    return final_response
