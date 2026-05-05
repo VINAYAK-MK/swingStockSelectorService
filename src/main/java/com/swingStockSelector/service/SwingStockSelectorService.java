@@ -378,21 +378,22 @@ public class SwingStockSelectorService {
 
         List<StockEntryResult> results = new ArrayList<>();
 
-        List<String> tickers;
-        if(CollectionUtils.isEmpty(request.getTickers())){
-            tickers = stockDailyRepository.findAllDistinctTickers();
-        }
-        else{
-            tickers = request.getTickers();
-        }
-
+        List<String> tickers =
+                CollectionUtils.isEmpty(request.getTickers())
+                        ? stockDailyRepository.findAllDistinctTickers()
+                        : request.getTickers();
 
         for (String ticker : tickers) {
 
             List<StockPriceDaily> candles =
                     stockDailyRepository.findByTickerOrderByTradeDateAsc(ticker);
 
-            List<StockBehavior> stockBehaviors = stockBehaviorRepository.findByTicker(ticker);
+            if (CollectionUtils.isEmpty(candles)) {
+                continue;
+            }
+
+            List<StockBehavior> stockBehaviors =
+                    stockBehaviorRepository.findByTicker(ticker);
 
             Map<String, StrategyParams> paramsMap =
                     stockBehaviors.stream()
@@ -401,7 +402,7 @@ public class SwingStockSelectorService {
                             .filter(p -> p.getStrategy() != null)
                             .collect(Collectors.toMap(
                                     StrategyParams::getStrategy,
-                                    p -> mergeWithDefaults(p),
+                                    this::mergeWithDefaults,
                                     (existing, replacement) -> existing
                             ));
 
@@ -419,7 +420,13 @@ public class SwingStockSelectorService {
                 );
             }
 
-            if (candles == null || candles.size() <= request.getBreakoutLookback()) {
+            StrategyParams breakoutParams =
+                    paramsMap.get(BREAKOUT);
+
+            int lookback =
+                    breakoutParams.getBreakoutLookback();
+
+            if (candles.size() <= lookback) {
 
                 StockEntryResult result = new StockEntryResult();
                 result.setTicker(ticker);
@@ -430,64 +437,110 @@ public class SwingStockSelectorService {
                 continue;
             }
 
-            int lastIndex = 0;
+            int lastIndex;
             StockPriceDaily today;
+
+            // Latest candle
             if (StringUtils.isBlank(request.getDate())) {
 
-                // No date passed → use latest candle
                 lastIndex = candles.size() - 1;
                 today = candles.get(lastIndex);
 
             } else {
 
-                LocalDate requestedDate = LocalDate.parse(request.getDate());
+                LocalDate requestedDate =
+                        LocalDate.parse(request.getDate());
 
-                // Find requested candle index
                 int requestedIndex = -1;
 
                 for (int i = 0; i < candles.size(); i++) {
-                    if (candles.get(i).getTradeDate().equals(requestedDate)) {
+
+                    if (candles.get(i)
+                            .getTradeDate()
+                            .equals(requestedDate)) {
+
                         requestedIndex = i;
                         break;
                     }
                 }
 
+                // Date not found OR no previous candle
                 if (requestedIndex <= 0) {
-                    throw new IllegalArgumentException(
-                            "No previous candle found for date: " + requestedDate
+
+                    StockEntryResult result =
+                            new StockEntryResult();
+
+                    result.setTicker(ticker);
+                    result.setShouldEnter(false);
+                    result.setReason(
+                            "Date not found / previous candle unavailable"
                     );
+
+                    results.add(result);
+                    continue;
                 }
 
-                // Pick previous available trading day
+                // Previous available trading day
                 lastIndex = requestedIndex - 1;
                 today = candles.get(lastIndex);
-
             }
 
-            System.out.println("-----" + stockBehaviors);
+            // Safety check
+            if (lastIndex < lookback) {
+
+                StockEntryResult result =
+                        new StockEntryResult();
+
+                result.setTicker(ticker);
+                result.setShouldEnter(false);
+                result.setReason(
+                        "Insufficient lookback candles"
+                );
+
+                results.add(result);
+                continue;
+            }
+
             boolean shouldEnter =
-                    breakoutStrategy.shouldEnter(candles, lastIndex, paramsMap.get(BREAKOUT));
+                    breakoutStrategy.shouldEnter(
+                            candles,
+                            lastIndex,
+                            breakoutParams
+                    );
 
-            double highestHigh = candles.subList(
-                            lastIndex - request.getBreakoutLookback(),
-                            lastIndex
-                    ).stream()
-                    .mapToDouble(StockPriceDaily::getHigh)
-                    .max()
-                    .orElse(0);
+            double highestHigh =
+                    candles.subList(
+                                    lastIndex - lookback,
+                                    lastIndex
+                            )
+                            .stream()
+                            .mapToDouble(
+                                    StockPriceDaily::getHigh
+                            )
+                            .max()
+                            .orElse(0);
 
-            StockEntryResult result = new StockEntryResult();
+            StockEntryResult result =
+                    new StockEntryResult();
+
             result.setTicker(ticker);
             result.setShouldEnter(shouldEnter);
             result.setClose(today.getClose());
             result.setHighestHigh(highestHigh);
-            result.setReason(shouldEnter ? "Breakout Valid" : "Conditions Not Met");
+            result.setReason(
+                    shouldEnter
+                            ? "Breakout Valid"
+                            : "Conditions Not Met"
+            );
 
             results.add(result);
         }
 
-        ShouldEnterResponse response = new ShouldEnterResponse();
+        ShouldEnterResponse response =
+                new ShouldEnterResponse();
+
         response.setResults(results);
+
         return response;
     }
 
